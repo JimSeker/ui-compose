@@ -71,7 +71,7 @@ fun FormExampleContent( innerPadding: PaddingValues) {
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .padding(16.dp)
+            .padding(innerPadding)
     ) {
         // Label01
         Text(
