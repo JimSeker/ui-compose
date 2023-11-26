@@ -8,3 +8,8 @@ This repo contains multiple projects, Most in sub directories to be better organ
 ---
 
 `Basic/` are simple examples. 
+
+--- 
+
+These are example code for University of Wyoming, Cosc 4730 Mobile Programming course and cosc 4735 Advanced Mobile Programing course. 
+All examples are for Android.
