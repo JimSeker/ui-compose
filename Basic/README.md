@@ -3,6 +3,7 @@ Basic Android GUI/UI Examples
 
 `FormExample` show some simple views/widgets and listeners using only an activity
 
+`ScreenDemoSimple` is very loosely based on fragmentDemoSimple.  The example shows how to create and use multiple "screens", which is simliar in nature to a android's concept of a fragment.
 
 
 ---
