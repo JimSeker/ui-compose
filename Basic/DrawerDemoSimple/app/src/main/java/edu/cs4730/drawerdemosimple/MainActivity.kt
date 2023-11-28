@@ -3,6 +3,7 @@ package edu.cs4730.drawerdemosimple
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
@@ -85,7 +86,7 @@ fun TopBar(drawerState: DrawerState) {
 @Preview(showBackground = true)
 @Composable
 fun TopBarPreview() {
-    TopBar(DrawerState(initialValue =  DrawerValue.Closed))
+    TopBar(DrawerState(initialValue = DrawerValue.Closed))
 }
 
 @Composable
@@ -129,21 +130,26 @@ fun MainScreen() {
         gesturesEnabled = true,
     ) { //content = is this part here.
         Scaffold(
-            topBar = { TopBar(drawerState)
-                     },
+            topBar = {
+                TopBar(drawerState)
+            },
             content = { padding -> // We have to pass the scaffold inner padding to our content. That's why we use Box.
-                Text(
+                Column(
                     modifier = Modifier.padding(padding),
-                    text = "Hi"
-                )
-                //top open the drawer, call this:
-                // scope.launch { drawerState.open() }
-                when (which) {
-                    1 -> FirstScreen()
-                    2 -> SecondScreen()
-                    3 -> ThirdScreen()
-                    else -> FirstScreen()
+                ) {
+                    Text(
+                        text = "Screen is $which"
+                    )
+                    //top open the drawer, call this:
+                    // scope.launch { drawerState.open() }
+                    when (which) {
+                        1 -> FirstScreen()
+                        2 -> SecondScreen()
+                        3 -> ThirdScreen()
+                        else -> FirstScreen()
+                    }
                 }
+
             },
         )
     }
