@@ -5,6 +5,9 @@ Basic Android GUI/UI Examples
 
 `ScreenDemoSimple` is very loosely based on fragmentDemoSimple.  The example shows how to create and use multiple "screens", which is simliar in nature to a android's concept of a fragment.
 
+`DrawerDemoSimple` is very simple ModalNavigationDrawer (android: drawerlayout) demo with 3 screens.
+
+`PagerDemoSimple` is a very simple HorizontalPager (or VerticalPager) demo with 3 screens.  Android view version would be a viewpager.
 
 ---
 
