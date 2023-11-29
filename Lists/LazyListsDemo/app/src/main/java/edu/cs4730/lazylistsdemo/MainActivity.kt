@@ -93,19 +93,20 @@ fun MainScreen() {
         },
     ) { padding ->
         LazyColumn(
-            modifier = Modifier.padding(padding)
-                ,
+            modifier = Modifier.padding(padding),
             verticalArrangement = Arrangement.spacedBy(4.dp)
         ) {
             item {
-                Text("Header")
+                //Text("Header")
+                myItem("Header", -1)
 
             }
             itemsIndexed(values) { index, item ->
                 myItem(item, index)
             }
             item {
-                Text("Footer")
+                //Text("Footer")
+                myItem("Footer", -1)
             }
         }
     }
@@ -121,31 +122,33 @@ fun MainScreenPreview() {
 
 @Composable
 fun myItem(value: String, index: Int) {
-    Box (
-        modifier = with (Modifier){
+    Box(
+        modifier = with(Modifier) {
             height(100.dp)
-               // .fillMaxWidth()
                 .paint(
-                    // Replace with your image id
-                    painterResource(id = R.drawable.phone),
-
-                    colorFilter =  ColorFilter.tint(Color.Gray, blendMode= BlendMode.Darken),
-                    contentScale = ContentScale.FillWidth)
+                    painter = painterResource(id = R.drawable.phone),
+                    //tint the image darker.
+                    colorFilter = ColorFilter.tint(Color.Gray, blendMode = BlendMode.Darken),
+                    contentScale = ContentScale.FillWidth
+                )
 
         })
     {
         // Add more views here!
         Text(
-            modifier = Modifier.fillMaxWidth().padding(16.dp),
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(16.dp),
             fontSize = 30.sp,
             textAlign = TextAlign.Center,
-            color= Color.White,
-            text = value)
+            color = Color.White,
+            text = "$index = $value"
+        )
     }
 }
 
 @Preview(showBackground = true)
 @Composable
 fun myItemPreview() {
-   myItem("Android", 1)
+    myItem("Android", 1)
 }
