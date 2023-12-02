@@ -77,8 +77,8 @@ fun MainScreen() {
                 when (page) {
                     0 -> SimpleScreen()
                     1 -> FirstScreen()
-                    2 -> SecondScreen()
-                    3 -> InterActiveScreen()
+                    2 -> InterActiveScreen()
+                    3 -> PhonebookScreen()
                     else -> FirstScreen()
                 }
             }
