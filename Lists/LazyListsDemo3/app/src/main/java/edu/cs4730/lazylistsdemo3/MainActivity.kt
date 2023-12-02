@@ -89,14 +89,21 @@ fun MainScreen() {
 
         val tabs = listOf("Simple", "simple2", "Interactive list", "PhoneBook list")
         Column(
-            modifier = Modifier.padding(padding).fillMaxWidth(),
+            modifier = Modifier
+                .padding(padding)
+                .fillMaxWidth(),
         ) {
-            ScrollableTabRow(selectedTabIndex = tabIndex) {
+            ScrollableTabRow(
+                selectedTabIndex = tabIndex,
+                containerColor = MaterialTheme.colorScheme.primaryContainer,
+                contentColor = MaterialTheme.colorScheme.onPrimaryContainer
+            ) {
                 tabs.forEachIndexed { index, title ->
                     Tab(
                         text = { Text(title) },
                         selected = tabIndex == index,
-                        onClick = { tabIndex = index
+                        onClick = {
+                            tabIndex = index
                             coroutineScope.launch {
                                 // Call scroll to on pagerState, when the tab is clicked.
                                 pagerState.scrollToPage(index)
