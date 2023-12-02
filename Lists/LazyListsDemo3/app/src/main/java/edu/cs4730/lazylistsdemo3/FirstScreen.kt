@@ -77,7 +77,7 @@ fun MyItem(value: String, index: Int) {
             fontSize = 30.sp,
             textAlign = TextAlign.Center,
             color = Color.White,
-            text = "$index = $value"
+            text = value
         )
     }
 }

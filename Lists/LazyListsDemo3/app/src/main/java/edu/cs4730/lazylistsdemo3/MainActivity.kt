@@ -66,18 +66,19 @@ fun MainScreen() {
             TopBar()
         },
     ) { padding ->
-        val pagerState = rememberPagerState(pageCount = { 3 })
+        val pagerState = rememberPagerState(pageCount = { 4 })
 
         Column(
             modifier = Modifier.padding(padding),
         ) {
-            Text("Page demo")
+            //Text("Page demo")
             //VerticalPager for vertical paging, otherwise the same.
             HorizontalPager(state = pagerState) { page ->
                 when (page) {
-                    0 -> FirstScreen()
-                    1 -> SecondScreen()
-                    2 -> InterActiveScreen()
+                    0 -> SimpleScreen()
+                    1 -> FirstScreen()
+                    2 -> SecondScreen()
+                    3 -> InterActiveScreen()
                     else -> FirstScreen()
                 }
             }
