@@ -2,8 +2,6 @@ Advanced Android GUI/UI Compose Examples
 ===========
 
 
-`BottomNavigationViewDemo`  use the material3 design NavigationBar and NavigationBarItem to switch between three screens.  Also shows how to set badges in the NavigationBarItem object as well.
-
 
 ---
 
