@@ -1,5 +1,8 @@
 Basic Android GUI/UI Examples
 ===========
+`BottomBarDemo` show how to use a basic version of bottomBar with 3 screens.  Android view version would be a BottomNavigationView.
+
+`DialogDemo` show how to use a basic Dialog.
 
 `FormExample` show some simple views/widgets and listeners using only an activity
 

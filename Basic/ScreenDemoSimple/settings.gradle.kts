@@ -13,5 +13,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "FragDemoSimple"
+rootProject.name = "ScreenDemoSimple"
 include(":app")
