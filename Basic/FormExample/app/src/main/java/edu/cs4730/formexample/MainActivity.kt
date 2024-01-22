@@ -1,6 +1,5 @@
 package edu.cs4730.formexample
 
-import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -13,7 +12,6 @@ import androidx.compose.ui.tooling.preview.Preview
 import android.widget.Toast
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
-import androidx.compose.material.*
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
@@ -38,7 +36,7 @@ class MainActivity : ComponentActivity() {
                     Scaffold (
                         topBar = {
                             TopAppBar(
-                                colors = TopAppBarDefaults.smallTopAppBarColors(
+                                colors = TopAppBarDefaults.topAppBarColors(
                                     containerColor = MaterialTheme.colorScheme.primaryContainer,
                                     titleContentColor = MaterialTheme.colorScheme.onPrimaryContainer,
                                 ),
@@ -65,7 +63,6 @@ fun GreetingPreview() {
     }
 }
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun FormExampleContent( innerPadding: PaddingValues) {
     Column(
