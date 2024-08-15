@@ -5,12 +5,15 @@ import android.graphics.Canvas
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.pager.HorizontalPager
+import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.material3.Button
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
@@ -30,6 +33,7 @@ import androidx.compose.ui.graphics.asImageBitmap
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import edu.cs4730.mvcdemo.ui.theme.MvcDemoTheme
 
 /**
@@ -44,7 +48,6 @@ class MainActivity : ComponentActivity() {
     private lateinit var theColor: Bitmap
     private lateinit var theColorc: Canvas
 
-    @OptIn(ExperimentalMaterial3Api::class)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         theColor = Bitmap.createBitmap(100, 100, Bitmap.Config.ARGB_8888)
@@ -59,25 +62,45 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    Scaffold(
-                        topBar = {
-                            TopAppBar(
-                                colors = TopAppBarDefaults.topAppBarColors(
-                                    containerColor = MaterialTheme.colorScheme.primaryContainer,
-                                    titleContentColor = MaterialTheme.colorScheme.onPrimaryContainer,
-                                ),
-                                title = {
-                                    Text(stringResource(R.string.app_name))
-                                }
-                            )
-                        },
-
-                        ) { innerPadding ->
-                        MvcDemoContent(innerPadding)
-                    }
+                    MainScreen()
                 }
             }
         }
+    }
+
+    @OptIn(ExperimentalMaterial3Api::class)
+    @Composable
+    fun TopBar() {
+        TopAppBar(
+            title = { Text(text = stringResource(R.string.app_name), fontSize = 18.sp) },
+            colors = TopAppBarDefaults.topAppBarColors(
+                containerColor = MaterialTheme.colorScheme.primaryContainer,
+                titleContentColor = MaterialTheme.colorScheme.primary
+            ),
+        )
+    }
+
+    @Preview(showBackground = true)
+    @Composable
+    fun TopBarPreview() {
+        TopBar()
+    }
+
+    @Composable
+    fun MainScreen() {
+        Scaffold(
+            topBar = {
+                TopBar()
+            },
+        ) { padding ->
+            MvcDemoContent(padding)
+        }
+    }
+
+    @Preview(showBackground = true)
+    @Composable
+    fun MainScreenPreview() {
+        MainScreen()
     }
 
     @Composable
@@ -132,7 +155,7 @@ class MainActivity : ComponentActivity() {
 
     @Preview(showBackground = true)
     @Composable
-    fun GreetingPreview() {
+    fun MvcDemoContentPreview() {
         MvcDemoTheme {
             MvcDemoContent(PaddingValues())
         }
