@@ -5,6 +5,7 @@ import android.graphics.Canvas
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Column
@@ -52,7 +53,6 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         theColor = Bitmap.createBitmap(100, 100, Bitmap.Config.ARGB_8888)
         theColorc = Canvas(theColor)
-
         theColorc.drawColor(myColors.getNum())
 
         setContent {
@@ -114,7 +114,7 @@ class MainActivity : ComponentActivity() {
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Text(
-                text =  colorName,
+                text = colorName,
                 modifier = Modifier
                     .padding(8.dp),
             )
